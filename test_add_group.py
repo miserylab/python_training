@@ -9,7 +9,7 @@ import unittest, time, re
 
 class TestAddGroup(unittest.TestCase):
     def setUp(self):
-        self.wd = webdriver.Chrome(executable_path=r'C:\Python\Python310\Scripts\chromedriver.exe')
+        self.wd = webdriver.Chrome(executable_path=r'')
         self.wd.implicitly_wait(30)
     
     def test_untitled_test_case(self):
