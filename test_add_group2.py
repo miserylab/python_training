@@ -3,14 +3,14 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
+import unittest, time
 
 class TestAddGroup(unittest.TestCase):
     def setUp(self):
-        self.wd = webdriver.Chrome(executable_path=r'C:\Python\Python310\Scripts\chromedriver.exe')
+        self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
     
-    def test_untitled_test_case(self):
+    def test_add_group(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/")
         wd.find_element(by=By.NAME, value="user").clear()
