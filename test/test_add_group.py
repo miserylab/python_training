@@ -2,8 +2,8 @@
 __author__ = 'miserylab'
 
 import pytest
-from group import Group
-from application import Application
+from python_training.model.group import Group
+from python_training.fixture.application import Application
 
 
 @pytest.fixture

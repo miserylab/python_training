@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest
-from group import Group
+from python_training.model.group import Group
 
 class TestAddGroup(unittest.TestCase):
     def setUp(self):
