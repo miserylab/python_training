@@ -40,7 +40,6 @@ class Application:
         wd.find_element(by=By.LINK_TEXT, value="groups").click()
 
 
-
     def open_home_page(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/")
