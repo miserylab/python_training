@@ -1,7 +1,6 @@
 __author__ = 'miserylab'
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from python_training.fixture.session import SessionHelper
 from python_training.fixture.group import GroupHelper
 
