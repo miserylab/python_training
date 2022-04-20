@@ -12,6 +12,14 @@ class Application:
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
 
+    def is_valid(self):
+        try:
+            # опрос у браузера какой текущий url у страницы. если url возвращается, то фикстура валидна
+            self.wd.current_url
+            return True
+        except:
+            return False
+
     def open_home_page(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/")
