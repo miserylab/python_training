@@ -8,7 +8,9 @@ from python_training.fixture.group import GroupHelper
 class Application:
     def __init__(self):
         self.wd = webdriver.Chrome()
-        self.wd.implicitly_wait(30)
+        # добавление ожиданий актуально для страницы, которая обновляется динамически. т.е. страница уже загрузилась,
+        # а элементы на ней всё ещё не появились (они подгружаются чуть позже)
+        # self.wd.implicitly_wait(5)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
 

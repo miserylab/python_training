@@ -1,6 +1,7 @@
 __author__ = 'miserylab'
 
 from selenium.webdriver.common.by import By
+from python_training.model.group import Group
 
 
 class GroupHelper:
@@ -10,7 +11,11 @@ class GroupHelper:
 
     def open_groups_page(self):
         wd = self.app.wd
-        wd.find_element(by=By.LINK_TEXT, value="groups").click()
+        # для test_del_group добавлена проверка на случай, когда нет записей для удаления и мы добавляем её через
+        # сreate. Чтобы два раза не было перехода на страницу с группами. Если на странице с url, оканчивающимся на
+        # /group.php есть кнопка "New group" и пр.
+        if not (wd.current_url.endswith("/group.php") and len(wd.find_elements(by=By.NAME, value="new")) > 0):
+            wd.find_element(by=By.LINK_TEXT, value="groups").click()
 
     def create(self, group):
         wd = self.app.wd
@@ -62,3 +67,19 @@ class GroupHelper:
     def return_to_groups_page(self):
         wd = self.app.wd
         wd.find_element(by=By.LINK_TEXT, value="group page").click()
+
+    def count(self):
+        wd = self.app.wd
+        self.open_groups_page()
+        return len(wd.find_elements(by=By.NAME, value="selected[]"))
+
+    def get_group_list(self):
+        wd = self.app.wd
+        self.open_groups_page()
+        groups = []
+        for element in wd.find_elements(by=By.CSS_SELECTOR, value="span.group"):
+            text = element.text
+            id = element.find_element(by=By.NAME, value="selected[]").get_attribute("value")
+            groups.append(Group(name=text, id=id))
+        return groups
+
