@@ -3,6 +3,7 @@ __author__ = 'miserylab'
 from selenium import webdriver
 from python_training.fixture.session import SessionHelper
 from python_training.fixture.group import GroupHelper
+from python_training.fixture.contact import ContactHelper
 
 
 class Application:
@@ -13,6 +14,7 @@ class Application:
         # self.wd.implicitly_wait(5)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
+        self.contact = ContactHelper(self)
 
     def is_valid(self):
         try:

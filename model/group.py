@@ -14,7 +14,7 @@ class Group:
     # стандартная функция определяет,как будет выглядеть объект при выводе на консоль,
     # каково его строковое представление - representation
     def __repr__(self):
-        return "%s:%s" % (self.id, self.name)
+        return "%s:%s;%s;%s" % (self.id, self.name, self.header, self.footer)
 
     # стандартная функция equals
     def __eq__(self, other):
